@@ -8,7 +8,7 @@ select
 		NationalSavingsTotal as NationalSavings,
 		DebtTotal / GDP as Ratio,
 		b.Country_Name, 
-		cast(c.Year as char(20)) + '-01-01'
+		date(concat(cast(c.Year as char(4)), '-1-1')) as Year
  from GDP_To_Debt_Fact a
 	join Country b
 		on a.Country_Key = b.Country_Key
